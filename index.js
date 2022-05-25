@@ -4,8 +4,18 @@
 // }).catch(function(err) {
 //     console.log(err);
 // });
-bsval = blackScholes(30, 34, .25, .2, .08, "call");
-console.log(bsval)
+
+//blackScholes(s, k, t, v, r, callPut)
+// s - Current price of the underlying
+// k - Strike price
+// t - Time to expiration in years
+// v - Volatility as a decimal
+// r - Annual risk-free interest rate as a decimal
+// callPut - The type of option to be priced - "call" or "put"
+
+
+// bsval = blackScholes(18000, k, .25, .2, .08, "call");
+// console.log(bsval)
 
 class TableCsv {
 
@@ -82,7 +92,13 @@ class TableCsv {
     setBody(data) {
       const rowsHtml = data.map((row, index) => {
         if(index != 0)
-        row = row.concat(this.spaces)
+        {
+            row = row.concat(this.spaces)
+            let strike_price = row[this.strike_price_index]
+            console.log(strike_price)
+            let bsval = blackScholes(18000, parseInt(strike_price), .25, .2, .08, "call");
+            console.log(bsval)
+        }
         return `
                   <tr>
                       ${row.map((text) => `<td>${text}</td>`).join("")}
