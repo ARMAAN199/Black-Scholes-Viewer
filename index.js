@@ -14,8 +14,8 @@
 // callPut - The type of option to be priced - "call" or "put"
 
 
-// bsval = blackScholes(18000, k, .25, .2, .08, "call");
-// console.log(bsval)
+bsval = blackScholes(101, 100, .1, .1140625, .0015, "call");
+console.log(bsval)
 
 class TableCsv {
 
@@ -97,7 +97,7 @@ class TableCsv {
             let strike_price = row[this.strike_price_index]
             console.log(strike_price)
             let bsval = blackScholes(18000, parseInt(strike_price), .25, .2, .08, "call");
-            console.log(bsval)
+            // console.log(bsval)
         }
         return `
                   <tr>
